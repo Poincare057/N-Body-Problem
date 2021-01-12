@@ -1,6 +1,7 @@
 # n-body code
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 # masses
 n = 3
@@ -43,6 +44,7 @@ for i in range(n):
 for t in range(2, T):
     r[t] = 2*r[t-1] - r[t-2] + (h**2)*f(r[t-2])
 
+#plots motion of each coordinate of each body through time
 def plot():
     rplot = np.zeros((T, 3))
     for i in range(n):
@@ -52,7 +54,24 @@ def plot():
         rplot = np.zeros((T, 3))
     plt.show()
 
-def config_plot(code):
+#3D sections of the configuration space
+def config_plot3D(code):
+    rplot = np.zeros((T))
+    for t in range(T):
+        rplot[t] = r[t][code[0]][code[1]]
+    rplot2 = np.zeros((T))
+    for t in range(T):
+        rplot2[t] = r[t][code[2]][code[3]]
+    rplot3 = np.zeros((T))
+    for t in range(T):
+        rplot3[t] = r[t][code[4]][code[5]]
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection = '3d')
+    ax.plot(rplot, rplot2, rplot3)
+    plt.show()
+
+#2D sections of configuration space
+def config_plot2D(code):
     rplot = np.zeros((T))
     for t in range(T):
         rplot[t] = r[t][code[0]][code[1]]
@@ -61,6 +80,6 @@ def config_plot(code):
         rplot2[t] = r[t][code[2]][code[3]]
     plt.plot(rplot, rplot2)
     plt.show()
-
+    
 
 
