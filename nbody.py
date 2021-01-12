@@ -3,16 +3,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # masses
-n = 2
+n = 3
 m = np.zeros(n)
 for i in range(n):
     m[i] = float(input())
     
 #constants
-G = 1.6*10**-4
+G = 6.67*10**-4
 
 #simulation time and step size
-T = 1000000
+T = 100000
 h = 0.01
 
 r = np.zeros((T, n, 3))
