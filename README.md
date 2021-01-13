@@ -1,4 +1,4 @@
-Code that 'solves' the n-body problem, based on a rudimentary numerical scheme for 2nd order ode (kind of like euler method). Can plot sections of the configuration space, and
+Code that numerically integrates the n-body problem, based on a rudimentary scheme for 2nd order ode (an euler method). Can plot sections of the configuration space, and
 the trajectories of all the coordinates of all n bodies.
 
 Example usage of config_plot3D(code) function:
